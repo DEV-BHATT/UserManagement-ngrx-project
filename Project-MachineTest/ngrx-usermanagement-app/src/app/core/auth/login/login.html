@@ -1,0 +1,31 @@
+
+<div class="login-wrapper">
+  
+  <mat-card class="login-card">
+    <div><strong> MANAGEMENT SYTEM</strong></div>
+    <h2>Login</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" placeholder="Enter username" />
+        <mat-error *ngIf="form.get('username')?.hasError('required')">
+          Username is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" placeholder="Enter password" type="password" />
+        <mat-error *ngIf="form.get('password')?.hasError('required')">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" class="login-btn" [disabled]="!form.valid">
+        Login
+      </button>
+    </form>
+  </mat-card>
+</div>
+

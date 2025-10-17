@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": null,
+      "username": "godd",
+      "email": "de@gmail.com",
+      "jobRole": "gd",
+      "job-role": "gd"
+    },
+    {
+      "username": "boo",
+      "email": "name@gmail.com",
+      "jobRole": "gd",
+      "id": "1742",
+      "job-role": "gd"
+    },
+    {
+      "username": "h",
+      "email": "h@gmail.com",
+      "jobRole": "qa",
+      "id": "26ba",
+      "job-role": "qa"
+    }
+  ]
+}

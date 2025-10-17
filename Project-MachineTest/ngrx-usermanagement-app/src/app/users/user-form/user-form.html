@@ -1,0 +1,39 @@
+<mat-card class="user-card">
+    <button mat-icon-button color="warn" class="close-btn" (click)="resetForm()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <form [formGroup]="userForm" (ngSubmit)="save()">
+    <h2>{{ editMode ? 'Edit User' : 'Add New User' }}</h2>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" placeholder="Enter username" />
+      <mat-error *ngIf="userForm.get('username')?.hasError('required')">
+        Username is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Enter email" />
+      <mat-error *ngIf="userForm.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="userForm.get('email')?.hasError('email')">
+        Enter a valid email
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Job Role</mat-label>
+      <mat-select formControlName="jobRole">
+        <mat-option *ngFor="let r of roles" [value]="r">{{ r }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">
+      {{ editMode ? 'Update User' : 'Add User' }}
+    </button>
+    <button mat-button type="button" *ngIf="editMode" (click)="resetForm()">Cancel</button>
+  </form>
+</mat-card>
